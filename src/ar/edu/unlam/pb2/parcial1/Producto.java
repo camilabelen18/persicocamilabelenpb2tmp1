@@ -10,6 +10,9 @@ public class Producto {
 		this.descripcionEsperada = descripcionEsperada;
 	}
 
+	
+
+	
 	public Integer getCodigoEsperado() {
 		return codigoEsperado;
 	}
@@ -25,6 +28,34 @@ public class Producto {
 	public void setDescripcionEsperada(String descripcionEsperada) {
 		this.descripcionEsperada = descripcionEsperada;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codigoEsperado == null) ? 0 : codigoEsperado.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Producto other = (Producto) obj;
+		if (codigoEsperado == null) {
+			if (other.codigoEsperado != null)
+				return false;
+		} else if (!codigoEsperado.equals(other.codigoEsperado))
+			return false;
+		return true;
+	}
+
+
 	
+
 	
 }

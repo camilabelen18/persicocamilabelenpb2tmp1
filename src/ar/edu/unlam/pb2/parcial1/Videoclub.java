@@ -2,6 +2,7 @@ package ar.edu.unlam.pb2.parcial1;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.BooleanSupplier;
 
 public class Videoclub {
 
@@ -19,8 +20,20 @@ public class Videoclub {
 
 	public Producto buscarProducto(Producto nuevoProducto) {
 		
+		for (Producto producto : listaDeProductos) {
+			if(producto.equals(nuevoProducto)) {
+				return producto;
+			}
+		}
 		
 		return null;
 	}
 
+	public Boolean vender(Producto nuevoProducto, Cliente nuevoCliente) {
+		return null;
+	}
+
+
+
+	
 }
