@@ -2,7 +2,7 @@ package ar.edu.unlam.pb2.parcial1;
 
 import ar.edu.unlam.pb2.parcial1.Enumeradores.Estado;
 
-public abstract class Producto {
+public  class Producto {
 
 	private Integer codigoEsperado;
 	private String descripcionEsperada;
@@ -18,9 +18,14 @@ public abstract class Producto {
 		return this.estado ;
 	}
 	
+	public void setEstadoActual(Estado estadoActual) {
+		this.estado=estadoActual ;
+	}
+	
 	public Cliente getQuienPoseeElProducto() {
 		return null;
 	}
+	
 	
 	public Integer getCodigoEsperado() {
 		return codigoEsperado;
@@ -62,6 +67,8 @@ public abstract class Producto {
 			return false;
 		return true;
 	}
+
+	
 
 
 

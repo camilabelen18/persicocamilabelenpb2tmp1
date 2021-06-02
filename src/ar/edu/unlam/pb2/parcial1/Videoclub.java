@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BooleanSupplier;
 
+import ar.edu.unlam.pb2.parcial1.Enumeradores.Estado;
+
 public class Videoclub {
 
 	private String nombreVideoclub;
@@ -11,6 +13,7 @@ public class Videoclub {
 	private List<Producto> listaDeVentas;
 	private List<Cliente> listaDeCliente;
 	private List<Producto> listaDeAlquileres;
+	private Producto nuevoProducto;
 	
 
 	public Videoclub(String nOMBRE_VIDEOCLUB) {
@@ -45,6 +48,7 @@ public class Videoclub {
 		
 		if(buscarProducto(nuevoProducto)!=null && buscarCliente(nuevoCliente) != null) {
 			if(nuevoProducto instanceof Pelicula || nuevoProducto instanceof Libro || nuevoProducto instanceof Comestible) {
+				nuevoProducto.setEstadoActual(Estado.VENDIDO);
 				return this.listaDeVentas.add(nuevoProducto);
 			}
 		}
@@ -65,6 +69,7 @@ public class Videoclub {
 	public Boolean alquilar(Producto nuevoProducto, Cliente nuevoCliente) {
 		if(buscarProducto(nuevoProducto)!=null && buscarCliente(nuevoCliente) != null) {
 			if(nuevoProducto instanceof Pelicula || nuevoProducto instanceof Videojuego) {
+				nuevoProducto.setEstadoActual(Estado.ALQUILADO);
 				return this.listaDeAlquileres.add(nuevoProducto);
 			}
 		}
