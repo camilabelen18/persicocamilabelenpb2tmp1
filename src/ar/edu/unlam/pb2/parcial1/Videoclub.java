@@ -7,16 +7,28 @@ import java.util.function.BooleanSupplier;
 public class Videoclub {
 
 	private String nombreVideoclub;
-	private List<Producto> listaDeProductos;
+	private List<Producto> listaDeProductos;	
+	private List<Producto> listaDeVentas;
+	private List<Cliente> listaDeCliente;
+	private List<Producto> listaDeAlquileres;
+	
 
 	public Videoclub(String nOMBRE_VIDEOCLUB) {
 		this.nombreVideoclub = nOMBRE_VIDEOCLUB;
-		this.listaDeProductos = new ArrayList<>();
+		this.listaDeProductos = new ArrayList<Producto>();
+		this.listaDeVentas = new ArrayList<Producto>();
+		this.listaDeCliente = new ArrayList<Cliente>();
+		this.listaDeAlquileres = new ArrayList<Producto>();
 	}
 
 	public void agregarProducto(Producto nuevoProducto) {
 		this.listaDeProductos.add(nuevoProducto);
 	}
+	
+	public void agregarCliente(Cliente nuevoCliente) {
+		this.listaDeCliente.add(nuevoCliente);
+	}
+
 
 	public Producto buscarProducto(Producto nuevoProducto) {
 		
@@ -30,10 +42,38 @@ public class Videoclub {
 	}
 
 	public Boolean vender(Producto nuevoProducto, Cliente nuevoCliente) {
+		
+		if(buscarProducto(nuevoProducto)!=null && buscarCliente(nuevoCliente) != null) {
+			if(nuevoProducto instanceof Pelicula || nuevoProducto instanceof Libro || nuevoProducto instanceof Comestible) {
+				return this.listaDeVentas.add(nuevoProducto);
+			}
+		}
+		return false;
+	}
+
+	private Cliente buscarCliente(Cliente nuevoCliente) {
+
+		for (Cliente cliente : listaDeCliente) {
+			if(cliente.equals(nuevoCliente)) {
+				return cliente;
+			}
+		}
+
 		return null;
 	}
 
-
+	public Boolean alquilar(Producto nuevoProducto, Cliente nuevoCliente) {
+		if(buscarProducto(nuevoProducto)!=null && buscarCliente(nuevoCliente) != null) {
+			if(nuevoProducto instanceof Pelicula || nuevoProducto instanceof Videojuego) {
+				return this.listaDeAlquileres.add(nuevoProducto);
+			}
+		}
+		return false;
+	}
+	
+	
+	
+	
 
 	
 }

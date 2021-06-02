@@ -6,7 +6,7 @@ import java.util.function.BooleanSupplier;
 
 import ar.edu.unlam.pb2.parcial1.Enumeradores.Genero;
 
-public class Pelicula extends Producto implements Vendible{
+public class Pelicula extends Producto implements Vendible,Alquilable{
 
 	private Genero tipo;
 	private Integer anioDeEstrenoEsperado;
@@ -14,6 +14,7 @@ public class Pelicula extends Producto implements Vendible{
 	private Double precioVenta;
 	
 	private List<String> listaDeActores;
+	private Double precioAlquiler;
 
 	public Pelicula(Integer cODIGO_ESPERADO, String dESCRIPCION_ESPERADA, Genero gENERO_ESPERADO,
 			Integer aNO_DE_ESTRENO_ESPERADO, String dIRECTOR_ESPERADO) {
@@ -58,6 +59,16 @@ public class Pelicula extends Producto implements Vendible{
 	@Override
 	public Double getPrecioVenta() {
 		return this.precioVenta;
+	}
+
+	@Override
+	public void setPrecioAlquiler(Double pRECIO_ALQUILER) {
+		this.precioAlquiler = pRECIO_ALQUILER;
+	}
+
+	@Override
+	public Double getPrecioAlquiler() {
+		return this.precioAlquiler;
 	}
 
 
