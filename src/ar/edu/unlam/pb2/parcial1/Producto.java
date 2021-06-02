@@ -1,17 +1,25 @@
 package ar.edu.unlam.pb2.parcial1;
 
+import ar.edu.unlam.pb2.parcial1.Enumeradores.Estado;
+
 public class Producto {
 
 	private Integer codigoEsperado;
 	private String descripcionEsperada;
+	private Estado estado = Estado.DISPONIBLE;
 	
 	public Producto(Integer codigoEsperado, String descripcionEsperada) {
 		this.codigoEsperado = codigoEsperado;
 		this.descripcionEsperada = descripcionEsperada;
 	}
 
+	public Estado getEstadoActual() {
+		return this.estado ;
+	}
 	
-
+	public Cliente getQuienPoseeElProducto() {
+		return null;
+	}
 	
 	public Integer getCodigoEsperado() {
 		return codigoEsperado;
@@ -53,6 +61,11 @@ public class Producto {
 			return false;
 		return true;
 	}
+
+
+
+
+
 
 
 	
